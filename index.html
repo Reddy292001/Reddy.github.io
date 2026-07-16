@@ -1,130 +1,561 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sai Venkata Bharath Reddy — Machine Learning Engineer portfolio" />
-  <title>Sai Bharath — Machine Learning Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { colors: { brand: '#3D81E3' }, fontFamily: { sans: ['Inter','system-ui','sans-serif'] } } } };
-  </script>
-  <style>
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#0c0c0c;color:#fff;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden} ::selection{background:rgba(61,129,227,.3)}
-    .page{position:relative;min-height:100vh;overflow:hidden;background:#0c0c0c}
-    .video-bg{position:fixed;inset:0;z-index:0;pointer-events:none}.video-bg video{width:100%;height:100%;object-fit:cover;opacity:.8}.video-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.18) 36%,rgba(12,12,12,.88) 74%,#0c0c0c 100%)}
-    .guide{position:fixed;top:0;bottom:0;width:1px;background:rgba(255,255,255,.09);z-index:5;pointer-events:none}.guide.left{left:calc(50% - 36rem)}.guide.right{right:calc(50% - 36rem)}
-    .noise{position:fixed;inset:0;z-index:6;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E")}
-    .content{position:relative;z-index:10}.container{max-width:72rem;margin:0 auto;padding:0 1.5rem}
-    .logo-mark{width:30px;height:30px}.nav-link{color:rgba(255,255,255,.62);font-size:12px;font-weight:500;transition:.25s}.nav-link:hover{color:white}
-    .pill{display:inline-flex;align-items:center;gap:.45rem;border-radius:999px;background:white;color:#050505;padding:.65rem 1rem;font-size:12px;font-weight:650;transition:.25s}.pill:hover{background:#eef7ff;transform:translateY(-1px)}
-    .hero{min-height:800px;padding-top:112px;text-align:center;display:flex;flex-direction:column;align-items:center}.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-    .headline{margin:34px 0 0;font-size:clamp(3.8rem,8vw,7.1rem);line-height:.87;letter-spacing:-.065em;font-weight:700}.shine{display:block;background-image:linear-gradient(to right,#071020 0%,#0b2551 12.5%,#a4f4fd 32.5%,#00d2ff 50%,#0b2551 67.5%,#071020 87.5%,#071020 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shiny 6s linear infinite;filter:url(#c3-noise)}
-    @keyframes shiny{0%{background-position:-200% center}100%{background-position:200% center}}
-    .hero-copy{max-width:510px;margin:30px auto 0;color:rgba(255,255,255,.55);font-size:14px;line-height:1.65}.hero-actions{margin-top:26px;display:flex;flex-direction:column;align-items:center;gap:12px}.small-note{font-size:10px;color:rgba(255,255,255,.3)}
-    .ribbon{position:absolute;left:50%;top:90px;width:900px;height:620px;transform:translateX(-50%) rotate(-4deg);pointer-events:none;opacity:.95;filter:drop-shadow(0 0 35px rgba(51,149,255,.3));background:radial-gradient(ellipse at 70% 23%,rgba(156,240,255,.95),rgba(23,117,235,.8) 20%,rgba(5,25,78,.95) 46%,transparent 64%);clip-path:polygon(0 65%,14% 52%,30% 42%,48% 34%,66% 27%,83% 16%,100% 0,94% 18%,82% 38%,66% 53%,48% 67%,27% 80%,6% 91%);mix-blend-mode:screen}
-    .ribbon:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at center,rgba(255,255,255,.35) .6px,transparent .7px);background-size:3px 3px;opacity:.32}
-    .macbar{position:relative;z-index:12;height:40px;border-top:1px solid rgba(255,255,255,.09);border-bottom:1px solid rgba(255,255,255,.09);background:rgba(0,0,0,.38);backdrop-filter:blur(14px)}.macbar-inner{height:100%;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.55)}
-    .app-window{margin:58px auto 0;max-width:70rem;border-radius:18px 18px 0 0;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:rgba(12,14,19,.88);backdrop-filter:blur(30px);box-shadow:0 50px 120px rgba(0,0,0,.65)}
-    .titlebar{height:44px;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.26);font-size:11px;color:rgba(255,255,255,.42)}.lights{position:absolute;left:15px;display:flex;gap:7px}.light{width:10px;height:10px;border-radius:50%}
-    .dashboard{display:grid;grid-template-columns:220px 1fr 1.35fr;min-height:500px}.sidebar,.projects{border-right:1px solid rgba(255,255,255,.07)}.sidebar{padding:16px;background:rgba(0,0,0,.25)}.compose{width:100%;border:0;border-radius:7px;padding:9px 10px;background:#fff;color:#0a0a0a;font-size:11px;font-weight:650;text-align:left}.side-item{display:flex;justify-content:space-between;padding:9px 10px;border-radius:7px;color:rgba(255,255,255,.55);font-size:11px;margin-top:4px}.side-item.active{background:rgba(255,255,255,.08);color:#fff}.label{display:flex;align-items:center;gap:8px}.dot{width:7px;height:7px;border-radius:50%}
-    .projects{background:rgba(10,12,16,.58)}.search{height:48px;padding:0 14px;display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,.07);font-size:11px;color:rgba(255,255,255,.3)}.project-row{padding:14px;border-bottom:1px solid rgba(255,255,255,.06)}.project-row.active{background:rgba(255,255,255,.065)}.project-top{display:flex;justify-content:space-between;gap:10px}.project-name{font-size:11px;font-weight:650}.project-time{font-size:9px;color:rgba(255,255,255,.35)}.project-title{font-size:11px;margin-top:4px}.project-preview{font-size:9px;color:rgba(255,255,255,.38);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .reader{padding:18px 20px}.toolbar{display:flex;gap:8px;color:rgba(255,255,255,.42);font-size:12px}.reader h3{font-size:16px;margin:28px 0 15px}.sender{display:flex;align-items:center;gap:10px;font-size:10px;color:rgba(255,255,255,.45)}.avatar{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#00d2ff,#0b2551);font-weight:700;color:#fff}.summary{margin:22px 0;padding:15px;border-radius:12px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}.summary strong{font-size:10px;color:#a4f4fd}.summary p,.reader-copy{font-size:10px;line-height:1.65;color:rgba(255,255,255,.55)}
-    .section{padding:110px 0}.glass{position:relative;overflow:hidden;background:rgba(255,255,255,.018);backdrop-filter:blur(8px);border-radius:24px;box-shadow:inset 0 1px 1px rgba(255,255,255,.12)}.glass:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.08) 25%,transparent 50%,rgba(255,255,255,.16));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
-    .section-title{font-size:clamp(2.25rem,5vw,4.8rem);letter-spacing:-.055em;line-height:.98;font-weight:650}.muted{color:rgba(255,255,255,.5)}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:24px;min-height:250px;transition:.35s}.card:hover{transform:translateY(-7px);background:rgba(255,255,255,.035)}.card-kicker{font-size:10px;color:#8fdcff;text-transform:uppercase;letter-spacing:.16em}.card h3{margin:18px 0 10px;font-size:19px}.card p{font-size:12px;line-height:1.65;color:rgba(255,255,255,.48)}.metric{font-size:30px;font-weight:700;letter-spacing:-.05em;margin-top:25px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.chip{padding:6px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.1);font-size:9px;color:rgba(255,255,255,.58)}
-    .projects-section{padding:80px 0 110px;position:relative}.projects-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:36px}.projects-head-copy{max-width:680px}.projects-head p{font-size:13px;line-height:1.7;color:rgba(255,255,255,.48);margin:18px 0 0}.text-link{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.72);font-size:11px;text-decoration:none;white-space:nowrap}.text-link:hover{color:#a4f4fd}.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.project-tile{position:relative;min-height:360px;border-radius:26px;overflow:hidden;background:rgba(8,10,15,.52);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.09);transition:transform .45s cubic-bezier(.22,1,.36,1),border-color .45s,background .45s;isolation:isolate}.project-tile:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,.09),transparent 35%,transparent 68%,rgba(92,195,255,.08));z-index:-1}.project-tile:after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at center,rgba(255,255,255,.14) .6px,transparent .7px);background-size:4px 4px;opacity:.09;mix-blend-mode:overlay;pointer-events:none}.project-tile:hover{transform:translateY(-8px);border-color:rgba(118,211,255,.34);background:rgba(12,16,24,.68)}.tile-7{grid-column:span 7}.tile-5{grid-column:span 5}.tile-4{grid-column:span 4}.tile-body{position:relative;z-index:2;height:100%;padding:28px;display:flex;flex-direction:column}.tile-top{display:flex;align-items:center;justify-content:space-between;gap:18px}.tile-index{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35)}.tile-metric{font-size:10px;color:#9be8ff;border:1px solid rgba(155,232,255,.18);background:rgba(57,150,204,.08);padding:6px 9px;border-radius:999px}.tile-visual{position:relative;flex:1;min-height:150px;margin:20px 0 24px;border-radius:19px;overflow:hidden;border:1px solid rgba(255,255,255,.07);background:linear-gradient(145deg,rgba(7,17,31,.92),rgba(7,9,14,.92))}.tile-visual:before{content:"";position:absolute;width:78%;height:120%;left:-12%;top:-34%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(161,242,255,.9),rgba(42,139,235,.62) 24%,rgba(12,39,93,.58) 50%,transparent 72%);filter:blur(2px);transform:rotate(-22deg);opacity:.8}.tile-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.28))}.visual-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:28px 28px}.visual-content{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;padding:18px;z-index:2}.mini-chart{display:flex;align-items:end;gap:5px;height:56px}.mini-chart span{width:7px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#a4f4fd,#2377d8);box-shadow:0 0 16px rgba(79,179,255,.22)}.visual-label{font-size:9px;color:rgba(255,255,255,.45);line-height:1.5;text-align:right}.tile-domain{font-size:10px;color:#8fdcff;text-transform:uppercase;letter-spacing:.15em}.project-tile h3{font-size:23px;letter-spacing:-.035em;margin:10px 0 10px}.project-tile p{font-size:11px;line-height:1.65;color:rgba(255,255,255,.47);margin:0}.tile-footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px}.tile-tags{display:flex;flex-wrap:wrap;gap:7px}.tile-tags span{font-size:8px;color:rgba(255,255,255,.54);border:1px solid rgba(255,255,255,.09);padding:5px 7px;border-radius:999px}.tile-arrow{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);color:white;transition:.3s}.project-tile:hover .tile-arrow{background:#fff;color:#050505;transform:rotate(-12deg)}.project-tile.compact{min-height:315px}.project-tile.compact .tile-visual{min-height:115px}.project-tile.featured .tile-visual{min-height:225px}
-    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}.timeline{padding:26px}.timeline-row{display:grid;grid-template-columns:110px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08)}.timeline-row:last-child{border-bottom:0}.timeline-date{font-size:10px;color:rgba(255,255,255,.35)}.timeline h3{margin:0;font-size:15px}.timeline p{margin:8px 0 0;font-size:11px;line-height:1.6;color:rgba(255,255,255,.48)}
-    footer{padding:80px 0 35px}.cta{padding:70px 30px;text-align:center}.cta:after{content:"";position:absolute;inset:0;background:radial-gradient(550px circle at 50% 0%,rgba(99,213,255,.18),transparent 70%);pointer-events:none}.cta>*{position:relative;z-index:2}.footerbar{display:flex;justify-content:space-between;gap:20px;margin-top:34px;color:rgba(255,255,255,.4);font-size:10px}.socials{display:flex;gap:20px}.available{display:flex;align-items:center;gap:8px}.pulse{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.45);animation:pulse 2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:none}
-    @media(max-width:900px){.projects-head{align-items:flex-start;flex-direction:column}.tile-7,.tile-5,.tile-4{grid-column:span 12}.project-tile,.project-tile.compact{min-height:340px}.guide{display:none}.nav-center{display:none}.hero{min-height:720px}.ribbon{width:780px;top:130px}.dashboard{grid-template-columns:160px 1fr}.reader{display:none}.grid3{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:35px}.section{padding:80px 0}}
-    @media(max-width:620px){.container{padding:0 18px}.nav-download{display:none}.headline{font-size:3.6rem}.hero-copy{font-size:13px}.ribbon{width:620px;height:520px;top:155px}.app-window{margin-top:38px}.dashboard{grid-template-columns:1fr;min-height:430px}.sidebar{display:none}.projects{border-right:0}.grid3{gap:12px}.timeline-row{grid-template-columns:1fr;gap:8px}.footerbar{flex-direction:column}.section-title{font-size:2.7rem}}
-  </style>
-</head>
-<body>
-<div class="page">
-  <div class="video-bg"><video autoplay muted loop playsinline src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4"></video></div>
-  <div class="guide left"></div><div class="guide right"></div><div class="noise"></div>
-  <svg width="0" height="0" aria-hidden="true"><filter id="c3-noise"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .35 0"/><feComposite in2="SourceGraphic" operator="in" result="noise"/><feBlend in="SourceGraphic" in2="noise" mode="multiply"/></filter></svg>
-  <div class="content">
-    <nav class="container" style="height:74px;display:flex;align-items:center;justify-content:space-between">
-      <a href="#home" aria-label="Home"><svg class="logo-mark" viewBox="0 0 256 256" fill="white"><path d="M 0 128 C 70.692 128 128 185.308 128 256 L 64 256 C 64 220.654 35.346 192 0 192 Z M 256 192 C 220.654 192 192 220.654 192 256 L 128 256 C 128 185.308 185.308 128 256 128 Z M 128 0 C 128 70.692 70.692 128 0 128 L 0 64 C 35.346 64 64 35.346 64 0 Z M 192 0 C 192 35.346 220.654 64 256 64 L 256 128 C 185.308 128 128 70.692 128 0 Z"/></svg></a>
-      <div class="nav-center" style="display:flex;gap:30px"><a class="nav-link" href="#projects">Projects</a><a class="nav-link" href="#experience">Experience</a><a class="nav-link" href="#skills">Skills</a><a class="nav-link" href="#contact">Contact</a></div>
-      <a class="pill nav-download" href="mailto:saibharathreddy121@gmail.com">Let's connect <span>›</span></a>
-    </nav>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sai Venkata Bharath Reddy — ML Engineer</title>
 
-    <main id="home">
-      <section class="hero container">
-        <div class="ribbon"></div>
-        <div style="position:relative;z-index:2">
-          <div class="eyebrow">Machine Learning Engineer · Portfolio 2026</div>
-          <h1 class="headline">Intelligence.<span class="shine">Engineered</span></h1>
-          <p class="hero-copy">I’m Sai Bharath, a machine-learning engineer building production-scale NLP, computer vision, anomaly-detection, and recommendation systems with a focus on explainability and measurable impact.</p>
-          <div class="hero-actions"><a class="pill" href="#projects">Explore my work <span>›</span></a><span class="small-note">Python · PyTorch · Transformers · AWS</span></div>
-        </div>
-      </section>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap"
+      rel="stylesheet"
+    />
 
-      <section class="projects-section container" id="projects">
-        <div class="projects-head reveal">
-          <div class="projects-head-copy">
-            <div class="eyebrow">Selected projects · Applied AI systems</div>
-            <h2 class="section-title" style="margin-top:18px">Work that turns models<br>into <span class="shine" style="display:inline">useful products.</span></h2>
-            <p>Production-minded machine-learning projects spanning NLP, anomaly detection, recommendations, computer vision, and autonomous systems.</p>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              body: ["Inter", "sans-serif"],
+              display: ["Instrument Serif", "serif"],
+            },
+            colors: {
+              bg: "hsl(var(--bg))",
+              surface: "hsl(var(--surface))",
+              "text-primary": "hsl(var(--text))",
+              muted: "hsl(var(--muted))",
+              stroke: "hsl(var(--stroke))",
+              accent: "hsl(var(--accent))",
+            },
+            keyframes: {
+              "scroll-down": {
+                "0%": { transform: "translateY(-100%)" },
+                "100%": { transform: "translateY(200%)" },
+              },
+              "role-fade-in": {
+                "0%": { opacity: "0", transform: "translateY(8px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              "gradient-shift": {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            animation: {
+              "scroll-down": "scroll-down 1.5s ease-in-out infinite",
+              "role-fade-in": "role-fade-in 0.4s ease-out",
+              "gradient-shift": "gradient-shift 6s ease infinite",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --bg: 0 0% 4%;
+        --surface: 0 0% 8%;
+        --text: 0 0% 96%;
+        --muted: 0 0% 53%;
+        --stroke: 0 0% 12%;
+        --accent: 0 0% 96%;
+      }
+      * {
+        border-color: hsl(var(--stroke));
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: hsl(var(--bg));
+        color: hsl(var(--text));
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      .accent-gradient {
+        background: linear-gradient(90deg, #89aacc 0%, #4e85bf 100%);
+      }
+      .accent-gradient-animated {
+        background: linear-gradient(90deg, #89aacc 0%, #4e85bf 50%, #89aacc 100%);
+        background-size: 200% 200%;
+      }
+      @keyframes scroll-down {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(200%); }
+      }
+      @keyframes role-fade-in {
+        0% { opacity: 0; transform: translateY(8px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animate-scroll-down { animation: scroll-down 1.5s ease-in-out infinite; }
+      .animate-role-fade-in { animation: role-fade-in 0.4s ease-out; }
+      .animate-gradient-shift { animation: gradient-shift 6s ease infinite; }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: hsl(var(--bg)); }
+      ::-webkit-scrollbar-thumb { background: hsl(var(--stroke)); border-radius: 4px; }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.25.6/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.15/dist/hls.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <div id="err" style="display:none;position:fixed;inset:0;z-index:99999;background:#0a0a0a;color:#f66;font-family:monospace;font-size:13px;padding:24px;white-space:pre-wrap;overflow:auto"></div>
+
+    <script>
+      window.addEventListener("error", function (e) {
+        var box = document.getElementById("err");
+        if (box) {
+          box.style.display = "block";
+          box.textContent += "[ERROR] " + (e.message || e.error) + "\n" +
+            (e.filename ? e.filename + ":" + e.lineno + ":" + e.colno + "\n" : "");
+        }
+      });
+      window.addEventListener("load", function () {
+        var missing = [];
+        if (!window.React) missing.push("React");
+        if (!window.ReactDOM) missing.push("ReactDOM");
+        if (!window.Babel) missing.push("Babel");
+        if (!window.gsap) missing.push("gsap");
+        if (!window.Hls) missing.push("hls.js");
+        if (missing.length) {
+          var box = document.getElementById("err");
+          box.style.display = "block";
+          box.textContent =
+            "Failed to load libraries: " + missing.join(", ") +
+            "\nCheck your internet connection (this page loads React/GSAP from CDNs).";
+        }
+      });
+    </script>
+
+    <script type="text/babel" data-presets="react">
+      const { useState, useEffect, useRef } = React;
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* ---------------- DATA (from resume) ---------------- */
+      const HLS_SOURCE =
+        "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
+
+      const profile = {
+        initials: "BR",
+        fullName: "Sai Venkata Bharath Reddy",
+        location: "Chicago",
+        email: "saibharathreddy121@gmail.com",
+        eyebrow: "MACHINE LEARNING '26",
+        roles: ["ML Engineer", "NLP Dev", "Researcher", "Builder"],
+        description:
+          "Machine-learning engineer skilled in building, optimizing, and deploying deep-learning, NLP, and anomaly-detection models at production scale — passionate about explainable AI and end-to-end, business-impactful solutions.",
+        socials: {
+          twitter: "https://twitter.com",
+          linkedin: "https://linkedin.com",
+          dribbble: "https://dribbble.com",
+          github: "https://github.com",
+        },
+      };
+
+      const projects = [
+        { title: "Twitter Sentiment", category: "NLP · Streaming", stack: "BERT · HuggingFace · Streamlit", description: "Fine-tuned BERT-base on 1.6M tweets (94% macro-F1) with a live streaming pipeline at ~150 req/s and an explainability dashboard on AWS EC2.", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-7", aspect: "aspect-[4/3] md:aspect-[16/10]" },
+        { title: "Fraud Detection", category: "ML · Anomaly", stack: "XGBoost · Optuna · FastAPI", description: "Engineered 28 features on 0.17% fraud data — 0.985 ROC-AUC, 92% recall — served via FastAPI at <35ms p95.", image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-5", aspect: "aspect-[4/3] md:aspect-[16/10]" },
+        { title: "Lane Detection", category: "Computer Vision", stack: "PyTorch · UNet · TensorRT", description: "UNet segmentation on 50k road frames (0.92 IoU), deployed on Jetson Nano with TensorRT at realtime 25 FPS.", image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-5", aspect: "aspect-[4/3] md:aspect-[16/10]" },
+        { title: "Brain Tumor Detection", category: "Deep Learning · Medical", stack: "TensorFlow · CNN · Flask", description: "CNN classifying MRI images for brain tumor detection with high accuracy, deployed via Flask for realtime predictions.", image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-7", aspect: "aspect-[4/3] md:aspect-[16/10]" },
+        { title: "Medicine Recommender", category: "Recommender · Health", stack: "Flask · PostgreSQL · SHAP", description: "Hybrid recommender (TF-IDF + matrix factorisation) on ICD-10 codes & drug-interaction graphs — improved MAP@10 by 21% with SHAP transparency.", image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-7", aspect: "aspect-[4/3] md:aspect-[16/10]" },
+        { title: "Flappy Bird DQN", category: "Reinforcement Learning", stack: "TensorFlow · DQN · Ray Tune", description: "Deep Q-Network with prioritized replay and reward-shaping reaching 2000+ average score, tuned via Ray Tune sweeps.", image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-5", aspect: "aspect-[4/3] md:aspect-[16/10]" },
+      ];
+
+      const journal = [
+        { title: "Fine-tuning Transformers at scale", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80", readTime: "6 min read", date: "Mar 2026" },
+        { title: "Taming imbalanced data for fraud", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80", readTime: "5 min read", date: "Feb 2026" },
+        { title: "Deploying vision models on the edge", image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=600&q=80", readTime: "8 min read", date: "Jan 2026" },
+        { title: "Explainable AI with SHAP & LIME", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80", readTime: "4 min read", date: "Dec 2025" },
+      ];
+
+      const explorations = [
+        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+      ];
+
+      const stats = [
+        { value: "10+", label: "Production Models" },
+        { value: "94%", label: "Peak Macro-F1" },
+        { value: "150", label: "Req/s Inference" },
+      ];
+
+      const scrollTo = (sel) =>
+        document.querySelector(sel)?.scrollIntoView({ behavior: "smooth" });
+
+      /* ---------------- HLS VIDEO ---------------- */
+      function HlsVideo({ src, className }) {
+        const ref = useRef(null);
+        useEffect(() => {
+          const video = ref.current;
+          if (!video) return;
+          let hls;
+          if (window.Hls && window.Hls.isSupported()) {
+            hls = new window.Hls({ enableWorker: true });
+            hls.loadSource(src);
+            hls.attachMedia(video);
+          } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+            video.src = src;
+          }
+          return () => hls && hls.destroy();
+        }, [src]);
+        return <video ref={ref} autoPlay muted loop playsInline className={className} />;
+      }
+
+      /* ---------------- LOADING SCREEN ---------------- */
+      const WORDS = ["Design", "Create", "Inspire"];
+      function LoadingScreen({ onComplete }) {
+        const [count, setCount] = useState(0);
+        const [wi, setWi] = useState(0);
+        useEffect(() => {
+          let raf, start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / 2700, 1);
+            setCount(Math.floor(p * 100));
+            if (p < 1) raf = requestAnimationFrame(tick);
+            else { setCount(100); setTimeout(onComplete, 400); }
+          };
+          raf = requestAnimationFrame(tick);
+          return () => cancelAnimationFrame(raf);
+        }, []);
+        useEffect(() => {
+          const id = setInterval(() => setWi((i) => (i + 1) % WORDS.length), 900);
+          return () => clearInterval(id);
+        }, []);
+        return (
+          <div className="fixed inset-0 z-[9999] bg-bg flex flex-col justify-between p-6 md:p-10" style={{ transition: "opacity .5s" }}>
+            <p className="text-xs text-muted uppercase tracking-[0.3em] animate-role-fade-in">Portfolio</p>
+            <div className="flex-1 flex items-center justify-center">
+              <h2 key={wi} className="text-4xl md:text-6xl lg:text-7xl font-display italic text-text-primary/80 animate-role-fade-in">{WORDS[wi]}</h2>
+            </div>
+            <div className="flex justify-end">
+              <span className="text-6xl md:text-8xl lg:text-9xl font-display text-text-primary tabular-nums">{String(count).padStart(3, "0")}</span>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-stroke/50">
+              <div className="h-full accent-gradient origin-left" style={{ transform: `scaleX(${count / 100})`, boxShadow: "0 0 8px rgba(137,170,204,.35)" }} />
+            </div>
           </div>
-          <a class="text-link" href="https://github.com" target="_blank">View GitHub <span>↗</span></a>
-        </div>
+        );
+      }
 
-        <div class="bento">
-          <article class="project-tile tile-7 featured reveal">
-            <div class="tile-body">
-              <div class="tile-top"><span class="tile-index">01 · Featured project</span><span class="tile-metric">94% macro-F1</span></div>
-              <div class="tile-visual"><div class="visual-grid"></div><div class="visual-content"><div class="mini-chart"><span style="height:24%"></span><span style="height:41%"></span><span style="height:34%"></span><span style="height:68%"></span><span style="height:54%"></span><span style="height:82%"></span><span style="height:95%"></span><span style="height:76%"></span></div><div class="visual-label">LIVE SENTIMENT<br>150 REQ/S · GPU</div></div></div>
-              <div class="tile-domain">Natural language processing</div>
-              <h3>Real-Time Twitter Sentiment Dashboard</h3>
-              <p>Fine-tuned BERT on 1.6 million labeled tweets and built a live inference pipeline with explainable attention visualizations, Docker, Streamlit, and AWS EC2.</p>
-              <div class="tile-footer"><div class="tile-tags"><span>BERT</span><span>HuggingFace</span><span>Streamlit</span><span>AWS</span></div><span class="tile-arrow">↗</span></div>
+      /* ---------------- NAVBAR ---------------- */
+      const LINKS = [{ label: "Home", href: "#home" }, { label: "Work", href: "#work" }, { label: "Resume", href: "#stats" }];
+      function Navbar() {
+        const [scrolled, setScrolled] = useState(false);
+        const [active, setActive] = useState("Home");
+        useEffect(() => {
+          const onScroll = () => setScrolled(window.scrollY > 100);
+          window.addEventListener("scroll", onScroll, { passive: true });
+          return () => window.removeEventListener("scroll", onScroll);
+        }, []);
+        const click = (e, href, label) => { e.preventDefault(); setActive(label); scrollTo(href); };
+        return (
+          <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4">
+            <div className={"inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2 py-2 transition-shadow " + (scrolled ? "shadow-md shadow-black/10" : "")}>
+              <a href="#home" onClick={(e) => click(e, "#home", "Home")} className="group relative w-9 h-9 rounded-full p-[1.5px] accent-gradient transition-transform hover:scale-110">
+                <span className="flex items-center justify-center w-full h-full rounded-full bg-bg font-display italic text-[13px] text-text-primary">{profile.initials}</span>
+              </a>
+              <span className="hidden sm:block w-px h-5 bg-stroke mx-1" />
+              {LINKS.map((l) => (
+                <a key={l.label} href={l.href} onClick={(e) => click(e, l.href, l.label)} className={"text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 transition-colors " + (active === l.label ? "text-text-primary bg-stroke/50" : "text-muted hover:text-text-primary hover:bg-stroke/50")}>{l.label}</a>
+              ))}
+              <span className="hidden sm:block w-px h-5 bg-stroke mx-1" />
+              <a href="#contact" onClick={(e) => click(e, "#contact", "Contact")} className="group relative rounded-full text-xs sm:text-sm">
+                <span className="absolute rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity" style={{ inset: -2 }} />
+                <span className="relative flex items-center gap-1 rounded-full bg-surface backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 text-text-primary">Say hi <span className="text-[10px]">↗</span></span>
+              </a>
             </div>
-          </article>
+          </nav>
+        );
+      }
 
-          <article class="project-tile tile-5 reveal">
-            <div class="tile-body">
-              <div class="tile-top"><span class="tile-index">02 · Risk intelligence</span><span class="tile-metric">0.985 ROC-AUC</span></div>
-              <div class="tile-visual"><div class="visual-grid"></div><div class="visual-content"><div class="mini-chart"><span style="height:82%"></span><span style="height:64%"></span><span style="height:90%"></span><span style="height:48%"></span><span style="height:72%"></span></div><div class="visual-label">FRAUD SIGNAL<br>&lt;35MS P95</div></div></div>
-              <div class="tile-domain">Anomaly detection</div><h3>Credit-Card Fraud Detection</h3><p>Engineered behavioral features, balanced a 0.17% fraud class, and deployed an optimized XGBoost model through a FastAPI service.</p>
-              <div class="tile-footer"><div class="tile-tags"><span>XGBoost</span><span>Optuna</span><span>FastAPI</span></div><span class="tile-arrow">↗</span></div>
+      /* ---------------- HERO ---------------- */
+      function Hero() {
+        const rootRef = useRef(null);
+        const [ri, setRi] = useState(0);
+        useEffect(() => {
+          const id = setInterval(() => setRi((i) => (i + 1) % profile.roles.length), 2000);
+          return () => clearInterval(id);
+        }, []);
+        useEffect(() => {
+          const ctx = gsap.context(() => {
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            tl.fromTo(".name-reveal", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1.2, delay: 0.1 })
+              .fromTo(".blur-in", { opacity: 0, filter: "blur(10px)", y: 20 }, { opacity: 1, filter: "blur(0px)", y: 0, duration: 1, stagger: 0.1 }, 0.3);
+          }, rootRef);
+          return () => ctx.revert();
+        }, []);
+        return (
+          <section ref={rootRef} id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden">
+              <HlsVideo src={HLS_SOURCE} className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg to-transparent" />
             </div>
-          </article>
+            <Navbar />
+            <div className="relative z-10 flex flex-col items-center text-center px-6">
+              <p className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-8">{profile.eyebrow}</p>
+              <h1 className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight text-text-primary mb-6">Bharath Reddy</h1>
+              <p className="blur-in text-lg md:text-2xl text-text-primary/90 mb-4">A <span key={ri} className="font-display italic text-text-primary animate-role-fade-in inline-block">{profile.roles[ri]}</span> lives in {profile.location}.</p>
+              <p className="blur-in text-sm md:text-base text-muted max-w-md mb-12">{profile.description}</p>
+              <div className="blur-in inline-flex gap-4">
+                <button onClick={() => scrollTo("#work")} className="group relative rounded-full text-sm px-7 py-3.5 bg-text-primary text-bg transition-all hover:scale-105 hover:bg-bg hover:text-text-primary">
+                  <span className="absolute rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity" style={{ inset: -2, zIndex: -1 }} />See Works
+                </button>
+                <button onClick={() => scrollTo("#contact")} className="group relative rounded-full text-sm px-7 py-3.5 border-2 border-stroke bg-bg text-text-primary transition-all hover:scale-105 hover:border-transparent">
+                  <span className="absolute rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity" style={{ inset: -2, zIndex: -1 }} />Reach out...
+                </button>
+              </div>
+            </div>
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3">
+              <span className="text-xs text-muted uppercase tracking-[0.2em]">Scroll</span>
+              <div className="w-px h-10 bg-stroke overflow-hidden relative"><div className="absolute inset-x-0 h-1/2 accent-gradient animate-scroll-down" /></div>
+            </div>
+          </section>
+        );
+      }
 
-          <article class="project-tile tile-4 compact reveal"><div class="tile-body"><div class="tile-top"><span class="tile-index">03 · Recommendations</span><span class="tile-metric">+21% MAP@10</span></div><div class="tile-visual"><div class="visual-grid"></div><div class="visual-content"><div class="mini-chart"><span style="height:35%"></span><span style="height:52%"></span><span style="height:68%"></span><span style="height:88%"></span></div><div class="visual-label">HYBRID RANKING</div></div></div><div class="tile-domain">Personalized intelligence</div><h3>Medicine Recommendation Engine</h3><p>Combined TF-IDF symptom matching with matrix factorization and SHAP explanations.</p><div class="tile-footer"><div class="tile-tags"><span>PostgreSQL</span><span>Flask</span><span>SHAP</span></div><span class="tile-arrow">↗</span></div></div></article>
+      /* ---------------- SECTION HEADER ---------------- */
+      function useReveal() {
+        const ref = useRef(null);
+        useEffect(() => {
+          const el = ref.current;
+          if (!el) return;
+          const st = ScrollTrigger.create({
+            trigger: el, start: "top 85%", once: true,
+            onEnter: () => gsap.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }),
+          });
+          gsap.set(el, { opacity: 0, y: 30 });
+          return () => st.kill();
+        }, []);
+        return ref;
+      }
 
-          <article class="project-tile tile-4 compact reveal"><div class="tile-body"><div class="tile-top"><span class="tile-index">04 · Computer vision</span><span class="tile-metric">25 FPS</span></div><div class="tile-visual"><div class="visual-grid"></div><div class="visual-content"><div class="mini-chart"><span style="height:26%"></span><span style="height:46%"></span><span style="height:70%"></span><span style="height:93%"></span></div><div class="visual-label">EDGE INFERENCE</div></div></div><div class="tile-domain">Autonomous perception</div><h3>Autonomous Lane Detection</h3><p>Built a UNet road-segmentation pipeline optimized with OpenCV and TensorRT on Jetson Nano.</p><div class="tile-footer"><div class="tile-tags"><span>UNet</span><span>OpenCV</span><span>TensorRT</span></div><span class="tile-arrow">↗</span></div></div></article>
+      function SectionHeader({ eyebrow, title, italicWord, subtext, ctaLabel }) {
+        const ref = useReveal();
+        return (
+          <div ref={ref} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+              <div className="flex items-center gap-3 mb-4"><span className="w-8 h-px bg-stroke" /><span className="text-xs text-muted uppercase tracking-[0.3em]">{eyebrow}</span></div>
+              <h2 className="text-4xl md:text-6xl font-body font-light text-text-primary tracking-tight">{title} <span className="font-display italic">{italicWord}</span></h2>
+              <p className="text-sm md:text-base text-muted max-w-md mt-4">{subtext}</p>
+            </div>
+            {ctaLabel && (
+              <button className="group relative hidden md:inline-flex items-center gap-2 rounded-full text-sm px-6 py-3 border border-stroke text-text-primary self-start md:self-auto">
+                <span className="absolute rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity" style={{ inset: -1, zIndex: -1 }} />
+                <span className="relative flex items-center gap-2 rounded-full bg-bg px-4 py-1 -mx-4 -my-1">{ctaLabel} <span className="text-xs">→</span></span>
+              </button>
+            )}
+          </div>
+        );
+      }
 
-          <article class="project-tile tile-4 compact reveal"><div class="tile-body"><div class="tile-top"><span class="tile-index">05 · Deep reinforcement</span><span class="tile-metric">2000+ score</span></div><div class="tile-visual"><div class="visual-grid"></div><div class="visual-content"><div class="mini-chart"><span style="height:20%"></span><span style="height:32%"></span><span style="height:58%"></span><span style="height:78%"></span><span style="height:96%"></span></div><div class="visual-label">DQN AGENT</div></div></div><div class="tile-domain">Reinforcement learning</div><h3>Flappy Bird Deep-Q Agent</h3><p>Implemented prioritized replay, target-network synchronization, and automated hyperparameter sweeps.</p><div class="tile-footer"><div class="tile-tags"><span>TensorFlow</span><span>Ray Tune</span><span>DQN</span></div><span class="tile-arrow">↗</span></div></div></article>
+      /* ---------------- SELECTED WORKS ---------------- */
+      function ProjectCard({ project }) {
+        const ref = useRef(null);
+        useEffect(() => {
+          const el = ref.current;
+          const st = ScrollTrigger.create({ trigger: el, start: "top 90%", once: true, onEnter: () => gsap.fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }) });
+          gsap.set(el, { opacity: 0, y: 40 });
+          return () => st.kill();
+        }, []);
+        return (
+          <div ref={ref} className={"group relative overflow-hidden bg-surface border border-stroke rounded-3xl " + project.span + " " + project.aspect}>
+            <img src={project.image} alt={project.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 opacity-20 mix-blend-multiply pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)", backgroundSize: "4px 4px" }} />
+            <div className="absolute top-5 left-5 z-10"><span className="text-[11px] uppercase tracking-[0.2em] text-white/80">{project.category}</span></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-bg/70 backdrop-blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 text-center">
+              <div className="relative rounded-full p-[1.5px] accent-gradient-animated animate-gradient-shift"><span className="block rounded-full bg-white text-bg text-sm px-5 py-2">View — <span className="font-display italic">{project.title}</span></span></div>
+              <p className="text-xs md:text-sm text-text-primary/80 max-w-xs">{project.description}</p>
+              <p className="text-[11px] uppercase tracking-[0.15em] text-muted">{project.stack}</p>
+            </div>
+          </div>
+        );
+      }
+      function SelectedWorks() {
+        return (
+          <section id="work" className="bg-bg py-12 md:py-16">
+            <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+              <SectionHeader eyebrow="Selected Work" title="Featured" italicWord="projects" subtext="A selection of ML systems I've built, from research to production." ctaLabel="View all work" />
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
+                {projects.map((p) => <ProjectCard key={p.title} project={p} />)}
+              </div>
+            </div>
+          </section>
+        );
+      }
 
-          <article class="project-tile tile-7 reveal"><div class="tile-body"><div class="tile-top"><span class="tile-index">06 · Medical imaging</span><span class="tile-metric">CNN classification</span></div><div class="tile-visual"><div class="visual-grid"></div><div class="visual-content"><div class="mini-chart"><span style="height:48%"></span><span style="height:76%"></span><span style="height:60%"></span><span style="height:92%"></span><span style="height:84%"></span><span style="height:98%"></span></div><div class="visual-label">MRI ANALYSIS<br>REAL-TIME APP</div></div></div><div class="tile-domain">Healthcare AI</div><h3>Brain Tumor Detection Using Deep Learning</h3><p>Developed and deployed a CNN-based MRI classifier with preprocessing workflows and a simple Flask interface for real-time predictions.</p><div class="tile-footer"><div class="tile-tags"><span>TensorFlow</span><span>Keras</span><span>CNN</span><span>Flask</span></div><span class="tile-arrow">↗</span></div></div></article>
+      /* ---------------- JOURNAL ---------------- */
+      function Journal() {
+        return (
+          <section id="journal" className="bg-bg py-16 md:py-24">
+            <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+              <SectionHeader eyebrow="Journal" title="Recent" italicWord="thoughts" subtext="Notes on machine learning, MLOps, and shipping models to production." ctaLabel="View all" />
+              <div className="flex flex-col gap-4">
+                {journal.map((e) => (
+                  <a key={e.title} href="#journal" className="group flex items-center gap-4 sm:gap-6 p-4 bg-surface/30 hover:bg-surface border border-stroke rounded-[40px] sm:rounded-full transition-colors">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0"><img src={e.image} alt={e.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" /></div>
+                    <div className="flex-1 min-w-0"><h3 className="text-lg sm:text-2xl font-display italic text-text-primary truncate">{e.title}</h3><p className="text-xs text-muted mt-1">{e.readTime}</p></div>
+                    <span className="text-xs sm:text-sm text-muted whitespace-nowrap pr-2 sm:pr-6">{e.date}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
 
-          <article class="project-tile tile-5 reveal"><div class="tile-body"><div class="tile-top"><span class="tile-index">System approach</span><span class="tile-metric">End-to-end delivery</span></div><div class="tile-visual"><div class="visual-grid"></div><div class="visual-content"><div class="mini-chart"><span style="height:55%"></span><span style="height:74%"></span><span style="height:88%"></span><span style="height:100%"></span></div><div class="visual-label">DATA → MODEL<br>API → CLOUD</div></div></div><div class="tile-domain">Production machine learning</div><h3>Built beyond the notebook.</h3><p>Each project connects model quality with reproducible training, explainability, API serving, containers, cloud deployment, and measurable performance.</p><div class="tile-footer"><div class="tile-tags"><span>MLflow</span><span>Docker</span><span>Airflow</span><span>CI/CD</span></div><a class="tile-arrow" href="#skills">↓</a></div></div></article>
-        </div>
-      </section>
+      /* ---------------- EXPLORATIONS ---------------- */
+      function Explorations() {
+        const sectionRef = useRef(null);
+        const contentRef = useRef(null);
+        const [lightbox, setLightbox] = useState(null);
+        const left = explorations.filter((_, i) => i % 2 === 0);
+        const right = explorations.filter((_, i) => i % 2 === 1);
+        useEffect(() => {
+          const ctx = gsap.context(() => {
+            ScrollTrigger.create({ trigger: sectionRef.current, start: "top top", end: "bottom bottom", pin: contentRef.current, pinSpacing: false });
+            gsap.to(".parallax-left", { yPercent: -20, ease: "none", scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "bottom top", scrub: true } });
+            gsap.to(".parallax-right", { yPercent: -45, ease: "none", scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "bottom top", scrub: true } });
+          }, sectionRef);
+          return () => ctx.revert();
+        }, []);
+        return (
+          <section ref={sectionRef} id="explorations" className="relative min-h-[300vh] bg-bg">
+            <div ref={contentRef} className="relative z-10 h-screen flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+              <div className="flex items-center gap-3 mb-4"><span className="w-8 h-px bg-stroke" /><span className="text-xs text-muted uppercase tracking-[0.3em]">Explorations</span><span className="w-8 h-px bg-stroke" /></div>
+              <h2 className="text-4xl md:text-6xl font-body font-light text-text-primary tracking-tight">Visual <span className="font-display italic">playground</span></h2>
+              <p className="text-sm md:text-base text-muted max-w-md mt-4">Experiments, visualizations, and side-quests from the research bench.</p>
+              <a href={profile.socials.dribbble} target="_blank" rel="noreferrer" className="pointer-events-auto mt-8 rounded-full text-sm px-6 py-3 border border-stroke text-text-primary hover:bg-surface transition-colors">Dribbble ↗</a>
+            </div>
+            <div className="absolute top-0 left-0 right-0 z-20 px-6">
+              <div className="max-w-[1400px] mx-auto grid grid-cols-2 gap-12 md:gap-40 pt-[40vh]">
+                <div className="parallax-left flex flex-col gap-16 md:gap-40 items-end">
+                  {left.map((src, i) => (
+                    <button key={src} onClick={() => setLightbox(src)} className="w-full aspect-square max-w-[320px] overflow-hidden rounded-2xl border border-stroke" style={{ transform: `rotate(${i % 2 === 0 ? -3 : 4}deg)` }}>
+                      <img src={src} alt="Exploration" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                    </button>
+                  ))}
+                </div>
+                <div className="parallax-right flex flex-col gap-16 md:gap-40 items-start mt-[20vh]">
+                  {right.map((src, i) => (
+                    <button key={src} onClick={() => setLightbox(src)} className="w-full aspect-square max-w-[320px] overflow-hidden rounded-2xl border border-stroke" style={{ transform: `rotate(${i % 2 === 0 ? 3 : -4}deg)` }}>
+                      <img src={src} alt="Exploration" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {lightbox && (
+              <div onClick={() => setLightbox(null)} className="fixed inset-0 z-[9998] bg-bg/90 backdrop-blur-md flex items-center justify-center p-6 cursor-zoom-out">
+                <img src={lightbox} alt="Exploration" className="max-w-full max-h-full rounded-2xl object-contain" />
+              </div>
+            )}
+          </section>
+        );
+      }
 
-      <section class="section container" id="skills"><div class="reveal" style="max-width:620px"><div class="eyebrow">Selected work · Production-ready systems</div><h2 class="section-title" style="margin-top:20px">From raw data to<br><span class="shine" style="display:inline">real-world inference.</span></h2><p class="muted" style="font-size:14px;line-height:1.7;margin-top:24px">I combine rigorous model development with dependable APIs, cloud infrastructure, experiment tracking, and clear explanations.</p></div>
-        <div class="grid3" style="margin-top:46px">
-          <article class="glass card reveal"><div class="card-kicker">01 · NLP</div><h3>Transformer systems</h3><p>Fine-tuning and deploying BERT, RoBERTa, GPT-2, Seq2Seq, LSTM, and attention-based models for classification and language intelligence.</p><div class="metric">94% <span style="font-size:11px;color:rgba(255,255,255,.35)">macro-F1</span></div><div class="chips"><span class="chip">HuggingFace</span><span class="chip">PyTorch</span><span class="chip">SpaCy</span></div></article>
-          <article class="glass card reveal"><div class="card-kicker">02 · Vision</div><h3>Real-time perception</h3><p>Computer-vision pipelines using CNNs, UNet, OpenCV, augmentation, TensorRT, and edge deployment for accurate real-time inference.</p><div class="metric">25 <span style="font-size:11px;color:rgba(255,255,255,.35)">FPS on edge</span></div><div class="chips"><span class="chip">UNet</span><span class="chip">TensorRT</span><span class="chip">OpenCV</span></div></article>
-          <article class="glass card reveal"><div class="card-kicker">03 · MLOps</div><h3>Reliable delivery</h3><p>Reproducible ML workflows using Docker, MLflow, Hydra, Airflow, CI/CD, FastAPI, AWS, and performance-focused model serving.</p><div class="metric">&lt;35ms <span style="font-size:11px;color:rgba(255,255,255,.35)">p95 latency</span></div><div class="chips"><span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">FastAPI</span></div></article>
-        </div>
-      </section>
+      /* ---------------- STATS ---------------- */
+      function Stats() {
+        const ref = useReveal();
+        return (
+          <section id="stats" className="bg-bg py-16 md:py-24">
+            <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+              <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+                {stats.map((s) => (
+                  <div key={s.label} className="flex flex-col items-center md:items-start text-center md:text-left border-t border-stroke pt-6">
+                    <span className="text-5xl md:text-7xl font-display italic text-text-primary">{s.value}</span>
+                    <span className="text-sm text-muted uppercase tracking-[0.2em] mt-2">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
 
-      <section class="section container" id="experience"><div class="about-grid"><div class="reveal"><div class="eyebrow">Experience & education</div><h2 class="section-title" style="margin-top:20px">Building models.<br>Measuring impact.</h2><p class="muted" style="margin-top:24px;font-size:14px;line-height:1.7">My work sits at the intersection of applied machine learning, production engineering, and explainable AI.</p></div><div class="glass timeline reveal"><div class="timeline-row"><div class="timeline-date">2023 — 2024</div><div><h3>Machine-Learning Intern · Technocolabs Softwares</h3><p>Owned feature engineering and model selection across four retail datasets, reducing MAE by 18%. Built reusable training scripts with PyTorch Lightning, Hydra, and MLflow.</p></div></div><div class="timeline-row"><div class="timeline-date">Expected Jul 2026</div><div><h3>M.S. Computer Science · University of the Cumberlands</h3><p>Advanced study in machine learning, distributed systems, deep learning, natural language processing, and computer vision.</p></div></div><div class="timeline-row"><div class="timeline-date">2019 — 2023</div><div><h3>B.Tech. Computer Science · SRM Institute</h3><p>Built the technical foundation for production AI, software engineering, and data-intensive systems.</p></div></div></div></div></section>
+      /* ---------------- CONTACT / FOOTER ---------------- */
+      const SOCIALS = [
+        { label: "Twitter", href: profile.socials.twitter },
+        { label: "LinkedIn", href: profile.socials.linkedin },
+        { label: "Dribbble", href: profile.socials.dribbble },
+        { label: "GitHub", href: profile.socials.github },
+      ];
+      function Contact() {
+        const mq = useRef(null);
+        useEffect(() => {
+          const ctx = gsap.context(() => {
+            gsap.to(".marquee-track", { xPercent: -50, duration: 40, ease: "none", repeat: -1 });
+          }, mq);
+          return () => ctx.revert();
+        }, []);
+        return (
+          <footer id="contact" className="relative bg-bg pt-16 md:pt-20 pb-8 md:pb-12 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden">
+              <HlsVideo src={HLS_SOURCE} className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 scale-y-[-1]" />
+              <div className="absolute inset-0 bg-black/60" />
+            </div>
+            <div ref={mq} className="relative z-10 overflow-hidden mb-16">
+              <div className="marquee-track flex whitespace-nowrap will-change-transform">
+                {Array.from({ length: 10 }).map((_, i) => (<span key={i} className="text-6xl md:text-8xl font-display italic text-text-primary/80 px-4">BUILDING THE FUTURE • </span>))}
+              </div>
+            </div>
+            <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 flex flex-col items-center text-center">
+              <p className="text-xs text-muted uppercase tracking-[0.3em] mb-6">Let's build together</p>
+              <a href={"mailto:" + profile.email} className="group relative rounded-full text-base md:text-lg px-8 py-4 bg-text-primary text-bg transition-all hover:scale-105 hover:bg-bg hover:text-text-primary">
+                <span className="absolute rounded-full accent-gradient opacity-0 group-hover:opacity-100 transition-opacity" style={{ inset: -2, zIndex: -1 }} />{profile.email} ↗
+              </a>
+              <div className="w-full border-t border-stroke mt-20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2.5 w-2.5"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" /><span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" /></span>
+                  <span className="text-sm text-muted">Available for projects</span>
+                </div>
+                <div className="flex items-center gap-6">{SOCIALS.map((s) => (<a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="text-sm text-muted hover:text-text-primary transition-colors">{s.label}</a>))}</div>
+                <span className="text-xs text-muted">© {new Date().getFullYear()} {profile.fullName}</span>
+              </div>
+            </div>
+          </footer>
+        );
+      }
 
-      <footer class="container" id="contact"><div class="glass cta reveal"><div class="eyebrow">Available for machine-learning opportunities</div><h2 class="section-title" style="margin-top:18px">Let’s build systems<br>that think clearly.</h2><p class="muted" style="max-width:520px;margin:22px auto 28px;font-size:13px;line-height:1.7">Open to ML engineering, applied AI, NLP, computer vision, and MLOps roles where strong models meet dependable products.</p><a class="pill" href="mailto:saibharathreddy121@gmail.com">Start a conversation <span>›</span></a></div><div class="footerbar"><div class="socials"><a href="https://www.linkedin.com" target="_blank">LinkedIn</a><a href="https://github.com" target="_blank">GitHub</a><a href="mailto:saibharathreddy121@gmail.com">Email</a></div><div class="available"><span class="pulse"></span>Available for opportunities</div></div></footer>
-    </main>
-  </div>
-</div>
-<script>
-  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.13});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-</script>
-</body>
+      /* ---------------- APP ---------------- */
+      function App() {
+        const [isLoading, setIsLoading] = useState(true);
+        return (
+          <React.Fragment>
+            {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+            <main style={{ opacity: isLoading ? 0 : 1, transition: "opacity .8s .2s" }}>
+              <Hero />
+              <SelectedWorks />
+              <Journal />
+              <Explorations />
+              <Stats />
+              <Contact />
+            </main>
+          </React.Fragment>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
 </html>
